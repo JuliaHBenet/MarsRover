@@ -1,0 +1,2 @@
+class RoversController < ApplicationController
+end
