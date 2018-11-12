@@ -1,15 +1,10 @@
 class RoversController < ApplicationController
-
-  def input_position
-  end
-
-  def set_map_dimensions
-  end
-
-  def instructions
-  end
-
-  def output_position
+require_relative 'plateau'
+require_relative 'rover'
+def initialize
+    # @position = []
+    @rover = []
+    # @instructions = []
   end
 
 end

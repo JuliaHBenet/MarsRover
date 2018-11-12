@@ -1,35 +1,41 @@
 require 'test_helper'
 
-class RoverTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-ORIGIN = [0,1]
-  test "initial position" do
-    rover = Rover.new
-    assert_equal(ORIGIN, rover.get_position)
+class RoverTest
+
+# file = File.open('text.txt', 'wb')
+# lines = file.readlines
+
+# dimensions = lines[0]
+
+# rover_initial_data = lines[1].split(' ')
+# rover_instructions = lines[2]
+
+  test "first instance" do
+    rover = Rover.new(1, 2, "N")
+    rover.run('LMLMLMLMM')
+    assert_equal([rover.x, rover.y, rover.orientation], [1,3, "N"])
   end
 
-  test "moves forward" do
-    moves = [0,1]
-    rover = Rover.new
-    # rover.receive_commands([:M])
-    assert_equal(moves, rover.get_position)
+  test "second instance" do
+    rover = Rover.new(3, 3, "E")
+    rover.run_commands('MMRMMRMRRM')
+    assert_equal([rover.x, rover.y, rover.orientation], [5,1, "E"])
   end
 
   test "turns left" do
-    rover = Rover.new
-    # rover.receive_commands(:L)
-    assert_equal(:N, rover.get_orientation)
+    rover = Rover.new(0,0,"N")
+    orientation = "N"
+    instructions = "L"
+    rover.run_commands
+    assert_equal("W", rover.get_final_orientation)
   end
 
   test "turns right" do
-    rover = Rover.new
-    # rover.receive_commands(:R)
-    assert_equal(:N, rover.get_orientation)
+    rover = Rover.new(0,0,"N")
+    orientation = "N"
+    instructions = "R"
+    rover.run_commands
+    assert_equal("E", rover.get_final_orientation)
   end
-
-# test "on_grid?" / test "grid_dimensions"
-# test "receives commands" / test "final position"
 
 end
