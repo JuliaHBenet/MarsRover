@@ -8,14 +8,17 @@ attr_accessor :x, :y, :orientation
     @orientation = orientation
   end
 
-   def run(instructions)
+# gets instructions read from file in get_instructions
+# method and separates them into commands
+  def run(instructions)
     instructions.chars.each { |command| execute(command) }
   end
 
+# executes commands depending on string given
   def execute(command)
     turn_left if command == "L"
-turn_right if command == "R"
-move_forward if command == "M"
+    turn_right if command == "R"
+    move_forward if command == "M"
   end
 
 
@@ -28,7 +31,7 @@ move_forward if command == "M"
   end
 
 
-  private
+private
 
   def turn_left
     self.orientation = case orientation
@@ -58,13 +61,16 @@ move_forward if command == "M"
   end
 
 end
+# END OF ROVER CLASS
 
-
-
+# Reads the first line of instructions file
+# to get the grid dimensions
 def get_grid_dimesions
   grid_dimensions = IO.readlines("file.txt")[0]
 end
 
+# Reads the second line of instructions file
+# to get the initial position (x and y)
 def get_intial_position
   line = IO.readlines("file.txt")[1]
   @x = line.slice[0].to_i
@@ -72,11 +78,15 @@ def get_intial_position
   @position = [@x, @y]
 end
 
+# Reads the second line of instructions file
+# to get the initial orientation
 def get_orientation
   line = IO.readlines("file.txt")[1]
   @orientation = line.slice[2].to_s
 end
 
+# Reads third line of instructions file
+# to get the rover movements and rotations
 def get_instructions
   @instructions = IO.readlines("file.txt")[2]
 end

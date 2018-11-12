@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After unzipping the MarsRoverRubyJH.zip file, please run the
 
-Things you may want to cover:
+application with the command ruby app.rb on the terminal.
 
-* Ruby version
+Please check both tests as per exercise instructions with
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+the rake command on the terminal.
