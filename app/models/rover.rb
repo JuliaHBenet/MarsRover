@@ -8,13 +8,16 @@ attr_accessor :x, :y, :orientation
     @orientation = orientation
   end
 
-  def run_commands(instructions)
-    instructions.each do |command|
-      turn_left if command == "L"
-      turn_right if command == "R"
-      move_forward if command == "M"
-    end
+   def run(instructions)
+    instructions.chars.each { |command| execute(command) }
   end
+
+  def execute(command)
+    turn_left if command == "L"
+turn_right if command == "R"
+move_forward if command == "M"
+  end
+
 
   def get_final_position
     final_position = @position
@@ -27,7 +30,7 @@ attr_accessor :x, :y, :orientation
 
   private
 
- def turn_left
+  def turn_left
     self.orientation = case orientation
                        when "N" then "W"
                        when "W" then "S"
@@ -55,10 +58,6 @@ attr_accessor :x, :y, :orientation
   end
 
 end
-
-
-
-
 
 
 
